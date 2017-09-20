@@ -24,8 +24,13 @@
 }
 
 .mr-image > div[mr-image-drawer] {
-    z-index: 200;
+    /*z-index: 200;*/
     cursor: crosshair;
+}
+
+.mr-image>div[mr-image-drawer]  div{
+    z-index: 300;
+    cursor: pointer;
 }
 
 .mr-image > img {
