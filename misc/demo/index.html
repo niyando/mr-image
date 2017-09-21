@@ -52,6 +52,11 @@
                 $scope.drawer.splice(index, 1);
             };
 
+            $scope.selectAnnotation = function(annotation){
+                console.log(annotation);
+            };
+
+
             $scope.cropRect = function () {
                 $scope.result = $scope.selector.crop();
             };
@@ -234,7 +239,7 @@
         </div>
 
 
-        <div mr-image mr-src="image.src" mr-max-width="image.maxWidth" mr-aspect-ratio="image.aspectRatio" mr-selector="selector" mr-drawer="drawer"></div>
+        <div mr-image mr-src="image.src" mr-max-width="image.maxWidth" mr-aspect-ratio="image.aspectRatio" mr-selector="selector" mr-drawer="drawer" select-annotation="selectAnnotation(rect)"></div>
 
         <div class="well well-sm text-center" style="margin-top: 20px">
             MR-IMAGE Demo page

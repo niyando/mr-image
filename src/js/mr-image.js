@@ -10,18 +10,23 @@ app.directive('mrImage', function() {
             aspectRatio: '=?mrAspectRatio',
             scale: '=?mrScale',
             drawer: '=?mrDrawer',
-            selector: '=?mrSelector'
+            selector: '=?mrSelector',
+            selectAnnotation: '&'
         },
         template:
             '<div mr-image-selector mr-model="selector" mr-aspect-ratio="aspectRatio" ' + 
             'ng-style="{ \'height\': scaleValuePx(height, scale), \'width\': scaleValuePx(width, scale) }"></div>' +
-            '<div mr-image-drawer mr-model="drawer" ' +
+            '<div mr-image-drawer show-annotation="select(rectangle)" mr-model="drawer" ' +
             'ng-style="{ \'height\': scaleValuePx(height, scale), \'width\': scaleValuePx(width, scale) }"></div>' +
             '<img ng-src="{{src}}" width="{{scaleValue(width, scale)}}" height="{{scaleValue(height, scale)}}">',
 
         link: function (scope, element) {
 
             element.addClass('mr-image');
+
+            scope.select = function(d){
+                scope.selectAnnotation({rect: d})
+            }
 
             function setImageSize(src) {
                 scope.image = new Image();
