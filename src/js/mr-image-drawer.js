@@ -7,7 +7,7 @@ app.directive('mrImageDrawer', function(){
             rects: '=mrModel',
             showAnnotation: '&'
         },
-        template: '<div ng-repeat="rect in rects" ng-click="showAnnotation({rectangle:rect})" style="' +
+        template: '<div ng-repeat="rect in rects" ng-click="showAnnotation({rectangle:rect, ev: $event})" style="' +
             'position: absolute;' +
             'cursor: pointer;' +
             '"' +
